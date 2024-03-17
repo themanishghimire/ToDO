@@ -11,7 +11,7 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 
-    <title>Document</title>
+    <title>Home</title>
 </head>
 
 <body>
@@ -23,6 +23,7 @@
         crossorigin="anonymous"></script>
 
     {% include 'nav.html' %}
+    
     <table class="table">
         <thead>
             <tr>
@@ -41,7 +42,9 @@
                 <td>{{todo.name}}</td>
                 <td>{{todo.description}}</td>
                 <td>{{todo.status}}</td>
-                <td><button class="btn btn-primary">Edit</button> <button class="btn btn-danger">Delete</button></td>
+                <td><a href="{% url 'edit' pk=todo.id %}"> <button class="btn btn-primary">Edit</button> </a> 
+                    <a href="{% url 'delete' pk=todo.id %}"> <button class="btn btn-danger">Delete</button> </a>
+                </td>
 
             </tr>
             {% endfor %}
